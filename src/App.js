@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {MY_PAGE, POSTS_PAGE, SINGLE_POST_PAGE} from "./accets/contstants";
+import {Redirect, Route, Switch} from "react-router-dom";
+import MyPostContainer from "./ui/myPosts/myPostsContainer";
+import PostTapeContainer from "./ui/postsTape/postsTapeContainer";
+import ErrorPage from "./ui/errorPage/errorPage";
+import SinglePostPageContainer from "./ui/postsTape/singlePostPage/singlePostPageContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+
+    return (
+        <div className="App">
+            <Switch>
+                <Route exact path={'/'} render={()=><Redirect to={MY_PAGE}/>}/>
+                <Route exact path={MY_PAGE} component={MyPostContainer}/>
+                <Route exact path={SINGLE_POST_PAGE} component={SinglePostPageContainer}/>
+                <Route exact path={POSTS_PAGE} component={PostTapeContainer}/>
+                <Route path={'*'} component={ErrorPage}/>
+            </Switch>
+
+            </div>
+    );
 }
 
 export default App;

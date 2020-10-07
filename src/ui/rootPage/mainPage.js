@@ -1,8 +1,9 @@
 import React from "react";
+import PostTapeContainer from "../postsTape/postsTapeContainer";
 
 const MainPage = (props) => {
     return(
-        <div></div>
+        <PostTapeContainer/>
     )
 }
 export default MainPage

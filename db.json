@@ -1,19 +1,34 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+  "data": {
+    "posts": [
+      {
+        "postId": 1,
+        "title": "json-server",
+        "author": "John",
+        "isCommentsShow": false,
+        "comments": [
+          {
+            "id": 1,
+            "body": "yoyo"
+          },
+          {
+            "id": 2,
+            "body": "yoyo too"
+          }
+        ]
+      },
+      {
+        "postId": 2,
+        "title": "json-server it's good thing",
+        "author": "Victor",
+        "isCommentsShow": false,
+        "comments": [
+
+        ]
+      }
+    ],
+    "profile": {
+      "name": "typicode"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
   }
 }

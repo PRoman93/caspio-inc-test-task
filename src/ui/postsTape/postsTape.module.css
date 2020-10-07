@@ -1,0 +1,28 @@
+.tapeWrapper {
+    margin: 0 auto;
+    width: 70%;
+    border: 1px grey solid;
+}
+.postsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 70%;
+    border: 1px grey solid;
+}
+.singlePost {
+    display: flex;
+    flex-direction: column;
+    /*align-content: center;*/
+    border: 1px antiquewhite solid;
+    margin: 2% auto;
+    text-align: left;
+    width: 300px;
+}
+.singlePost:hover{
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+.singlePost div{
+    margin: 1%;
+}
