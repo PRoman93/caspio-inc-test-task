@@ -1,27 +1,26 @@
 import React, {useEffect, useState} from "react";
-import {getData, showCommentsById} from "../../bll/dataReducer";
+import {getData} from "../../bll/dataReducer";
 import {useDispatch, useSelector} from "react-redux";
 import PostsTape from "./postsTape";
 
 const PostTapeContainer = (props) => {
 
+    const dispatch = useDispatch()
     const [comments, setComments] = useState(false)
+    const posts = useSelector(state => state.reducer.posts)
+    console.log('posts- ',posts)
     useEffect(() => {
+        debugger
         dispatch(getData())
     }, [])
-    const dispatch = useDispatch()
-    const data = useSelector(state => state.reducer.data)
-    console.log(data.posts)
 
-    const onShowCommentsClick = (id) => {
-        debugger
-        dispatch(showCommentsById(id))
-        setComments(true)
-    }
+
+
+
 
 
     return(
-        <PostsTape data={data}/>
+        <PostsTape data={posts}/>
     )
 }
 export default PostTapeContainer

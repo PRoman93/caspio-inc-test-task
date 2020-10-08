@@ -17,8 +17,8 @@ function App() {
             <Switch>
                 <Route exact path={'/'} render={()=><Redirect to={MY_PAGE}/>}/>
                 <Route exact path={MY_PAGE} component={MyPostContainer}/>
-                <Route exact path={SINGLE_POST_PAGE} component={SinglePostPageContainer}/>
-                <Route exact path={POSTS_PAGE} component={PostTapeContainer}/>
+                <Route path={`${SINGLE_POST_PAGE}/:id?`} component={SinglePostPageContainer}/>
+                <Route path={POSTS_PAGE} component={PostTapeContainer}/>
                 <Route path={'*'} component={ErrorPage}/>
             </Switch>
 

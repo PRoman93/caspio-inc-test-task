@@ -1,42 +1,37 @@
-import {GET_DATA, GET_SINGLE_POST, SHOW_COMMENTS} from "../accets/contstants";
+import {ADD_NEW_COMMENT, GET_DATA, GET_SINGLE_POST, SHOW_COMMENTS} from "../accets/contstants";
 import {api} from "../dal/api";
 
 const initialState = {
-    data: {
-        posts: [
-            {comments: []}
-        ],
-        comments: [],
-        profile: {}
-    }
+    post: [
+        {
+            postId: null,
+            title: '',
+            author: '',
+            comments: [{body: '', id: null}]
+        }
+    ],
+    posts: [],
+    profile: {}
 }
 const dataReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_DATA: {
-            // debugger
             return {
-                ...state, data: action.data.result
+                ...state, posts: action.data.result
             }
         }
         case GET_SINGLE_POST: {
-            debugger
             return {
-                ...state, post: action.posts.result.filter(post => post.postId === action.id)
+                ...state, post: action.post.result
             }
         }
-        case SHOW_COMMENTS: {
-            // debugger
+        case ADD_NEW_COMMENT: {
+            debugger
             return {
-                ...state, data: action.data.result.map(c => {
-                    if (c.postId === action.id) {
-                        debugger
-                        return {
-                            ...c, comments: action.comments
-                        }
-                    } else {
-                        debugger
-                        return {
-                            ...c
+                ...state, posts: state.posts.map(post=>{
+                    if(post.postId === action.id){
+                        return{
+                            ...state, comments:[...post.comments, {body:action.comment}]
                         }
                     }
                 })
@@ -47,20 +42,19 @@ const dataReducer = (state = initialState, action) => {
 }
 export default dataReducer
 const getDataSuccess = (data) => ({type: GET_DATA, data})
-const showCommentsSuccess = (id, post) => ({type: SHOW_COMMENTS, id})
-const getSinglePostSuccess = (posts) => ({type: GET_SINGLE_POST, posts})
+const getSinglePostSuccess = (post) => ({type: GET_SINGLE_POST, post})
+const addNewCommentSuccess = (comment, id) => ({type: ADD_NEW_COMMENT, comment, id})
 
 export const getData = () => async (dispatch) => {
     const result = await api.getData()
     dispatch(getDataSuccess(result))
 }
-export const showCommentsById = (id) => async (dispatch) => {
-    debugger
-    const result = await api.showCommentsById(id)
-    dispatch(showCommentsSuccess(result))
-}
-export const getSinglePost = () => async (dispatch) => {
-    debugger
-    const result = await api.getSinglePost()
+export const getSinglePost = (id) => async (dispatch) => {
+    const result = await api.getSinglePost(id)
     dispatch(getSinglePostSuccess(result))
+}
+export const addNewComment = (comment, id) => async (dispatch) => {
+    debugger
+    const result = await api.addNewComment(comment, id)
+    dispatch(addNewCommentSuccess(result))
 }

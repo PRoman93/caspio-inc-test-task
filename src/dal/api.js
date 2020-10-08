@@ -1,36 +1,38 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3001/data'
+    baseURL: 'http://localhost:3001/'
 })
 
 
 export const api = {
     getData() {
-        return instance.get('').then(res => {
-            // debugger
-         const result = res.data
-            return{
+        return instance.get('posts').then(res => {
+            const result = res.data
+            return {
                 result
             }
         })
     },
-    showCommentsById() {
-        return instance.get(``).then(res => {
-            debugger
-         const result = res.data.posts
-            return{
+    getSinglePost(id) {
+        debugger
+        return instance.get(`posts?postId=${id}`).then(res => {
+            const result = res.data
+            return {
                 result
             }
         })
     },
-    getSinglePost() {
-        return instance.get(``).then(res => {
-            debugger
-         const result = res.data.posts
-            return{
-                result
-            }
-        })
+    addNewComment(comment, id) {
+        debugger
+        return instance.patch(`posts/${id}`,  {
+                "comments": [{body: comment, id: id}]
+            })
+            .then(res => res.data)
+            .catch(err => alert(err))
     }
+    // addNewComment(comment, id) {
+    //     debugger
+    //     return instance.patch(`posts?postId=${id}?comments`, {body: comment, id:3}).then(res=>res.data).catch(err=>alert(err))
+    // }
 }
