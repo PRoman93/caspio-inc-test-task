@@ -86,9 +86,9 @@
       ]
     }
   ],
-  "authPage": {
+  "authData": {
     "nickname": "",
-    "eMail": "",
+    "email": "",
     "password": "",
     "isAuth": false
   },

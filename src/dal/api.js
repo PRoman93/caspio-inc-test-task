@@ -7,8 +7,10 @@ const instance = axios.create({
 
 
 export const api = {
-    getData() {
+
+    getPosts() {
         return instance.get('posts/').then(res => {
+            debugger
             const result = res.data
             return {
                 result
@@ -16,7 +18,7 @@ export const api = {
         }).catch(err => alert(err))
     },
     getSinglePost(id) {
-        return instance.get(`posts?${id}`).then(res => {
+        return instance.get(`posts/${id}`).then(res => {
             debugger
             const result = res.data
             return {
@@ -36,4 +38,23 @@ export const api = {
     //     debugger
     //     return instance.patch(`posts?postId=${id}?comments`, {body: comment, id:3}).then(res=>res.data).catch(err=>alert(err))
     // }
+}
+export const authApi = {
+    getAuthData() {
+        return instance.get(`/authPage`).then(res => {
+            debugger
+            return {
+                res
+            }
+        })
+    },
+    login(nickname, email, password, isAuth = true) {
+        return instance.patch(`/authPage/`, {nickname, email, password, isAuth}).then(res => {
+            debugger
+            const result = res.data
+            return {
+                result
+            }
+        })
+    }
 }
