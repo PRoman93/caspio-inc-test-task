@@ -1,5 +1,4 @@
 {
-
   "posts": [
     {
       "id": 1,
@@ -14,12 +13,18 @@
     },
     {
       "id": 2,
-      "title": "I'm beautiful",
-      "author": "Jack",
-      "comments": []
+      "title": "It's warm today",
+      "author": "John",
+      "comments": [{
+        "id": 1,
+        "body": "it's quite fair"
+      }]
     }
   ],
-  "profile": {
-    "name": "typicode"
+  "authPage": {
+    "nickname": "",
+    "eMail": "",
+    "password": "",
+    "isAuth": false
   }
 }
