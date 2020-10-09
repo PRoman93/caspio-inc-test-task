@@ -6,8 +6,14 @@
       "author": "Jack",
       "comments": [
         {
-          "body": "eee",
-          "id": 3
+          "id": 1,
+          "author": "David",
+          "body": "eee"
+        },
+        {
+          "id": 2,
+          "author": "Nick",
+          "body": "Hello,bro"
         }
       ]
     },
@@ -15,10 +21,69 @@
       "id": 2,
       "title": "It's warm today",
       "author": "John",
-      "comments": [{
-        "id": 1,
-        "body": "it's quite fair"
-      }]
+      "comments": [
+        {
+          "id": 1,
+          "body": "it's quite fair",
+          "author": "Emile"
+        },
+        {
+          "id": 2,
+          "author": "James",
+          "body": "no way!"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "It's warm today",
+      "author": "John",
+      "comments": [
+        {
+          "id": 1,
+          "body": "it's quite fair",
+          "author": "Emile"
+        },
+        {
+          "id": 2,
+          "author": "James",
+          "body": "no way!"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "It's warm today",
+      "author": "John",
+      "comments": [
+        {
+          "id": 1,
+          "body": "it's quite fair",
+          "author": "Emile"
+        },
+        {
+          "id": 2,
+          "author": "James",
+          "body": "no way!"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "It's warm today",
+      "author": "John",
+      "comments": [
+        {
+          "id": 1,
+          "body": "it's quite fair",
+          "author": "Emile"
+        },
+        {
+          "id": 2,
+          "author": "James",
+          "body": "no way!"
+        }
+      ]
     }
   ],
   "authPage": {
@@ -26,5 +91,21 @@
     "eMail": "",
     "password": "",
     "isAuth": false
+  },
+  "myPage": {
+    "posts": [
+      {
+        "id": 1,
+        "body": "It's me!"
+      },
+      {
+        "id": 2,
+        "body": "It's a good day!"
+      },
+      {
+        "id": 3,
+        "body": "I'm happy person!"
+      }
+    ]
   }
 }
