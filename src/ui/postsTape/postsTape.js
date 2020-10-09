@@ -18,8 +18,8 @@ const PostsTape = (props) => {
         // dispatch(getSinglePost(id))
     }
     const renderData = props.data.map(el =>
-        <div className={s.singlePost} key={el.postId} id={el.postId}
-             onClick={() => history.push(`${SINGLE_POST_PAGE}/${el.postId}`)}>
+        <div className={s.singlePost} key={el.id} id={el.id}
+             onClick={() => history.push(`${SINGLE_POST_PAGE}/${el.id}`)}>
             <div><strong>{el.author}</strong></div>
             <div>{el.title}</div>
         </div>)

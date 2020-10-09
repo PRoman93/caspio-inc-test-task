@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 
 const SinglePostPage = (props) => {
-    console.log(props)
+    console.log(props.post[0])
 
     const [newComment, setNewComment] = useState('')
 
     const addNewComment = () => {
         debugger
-        props.onAddNewComment(newComment, props.post[0].postId)
+        props.onAddNewComment(newComment, props.post[0].id)
         setNewComment('')
     }
     const onNewCommentAdd = (e) => {

@@ -1,32 +1,22 @@
 {
+
   "posts": [
     {
       "id": 1,
-      "postId": 1,
-      "title": "json-server",
-      "author": "John",
+      "title": "I'm beautiful",
+      "author": "Jack",
       "comments": [
         {
-          "id": 1,
-          "body": "yoyo"
-        },
-        {
-          "id": 2,
-          "body": "yoyo too"
+          "body": "eee",
+          "id": 3
         }
       ]
     },
     {
       "id": 2,
-      "postId": 2,
-      "title": "json-server it's good thing",
-      "author": "Victor",
-      "comments": [
-        {
-          "body": "ww",
-          "id": 2
-        }
-      ]
+      "title": "I'm beautiful",
+      "author": "Jack",
+      "comments": []
     }
   ],
   "profile": {

@@ -4,13 +4,18 @@ import {api} from "../dal/api";
 const initialState = {
     post: [
         {
-            postId: null,
+            id: null,
             title: '',
             author: '',
             comments: [{body: '', id: null}]
         }
     ],
-    posts: [],
+    posts: [ {
+        id: null,
+        title: '',
+        author: '',
+        comments: [{body: '', id: null}]
+    }],
     profile: {}
 }
 const dataReducer = (state = initialState, action) => {
@@ -21,6 +26,7 @@ const dataReducer = (state = initialState, action) => {
             }
         }
         case GET_SINGLE_POST: {
+            debugger
             return {
                 ...state, post: action.post.result
             }
@@ -28,10 +34,11 @@ const dataReducer = (state = initialState, action) => {
         case ADD_NEW_COMMENT: {
             debugger
             return {
-                ...state, posts: state.posts.map(post=>{
-                    if(post.postId === action.id){
-                        return{
-                            ...state, comments:[...post.comments, {body:action.comment}]
+                ...state, posts: state.posts.map(post => {
+                    if (post.id === action.id) {
+                        debugger
+                        return {
+                            ...state, comments: [...post.comments, action.comment]
                         }
                     }
                 })
@@ -50,6 +57,7 @@ export const getData = () => async (dispatch) => {
     dispatch(getDataSuccess(result))
 }
 export const getSinglePost = (id) => async (dispatch) => {
+    debugger
     const result = await api.getSinglePost(id)
     dispatch(getSinglePostSuccess(result))
 }
